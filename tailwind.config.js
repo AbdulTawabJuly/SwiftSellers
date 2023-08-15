@@ -9,8 +9,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      signature: ["Sacramento"],
+      signature: ["Great Vibes"],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio'),require('@tailwindcss/forms')],
 };
