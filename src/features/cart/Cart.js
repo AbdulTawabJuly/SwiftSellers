@@ -110,21 +110,20 @@ export default function Counter() {
             Shipping and taxes calculated at checkout.
           </p>
           <div className="mt-6">
-            <a
-              href="#"
+          <Link
+            to="/checkout"
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
             >
               Checkout
-            </a>
+            </Link>
           </div>
           <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
             <p>
-              or{" "}
+              or
               <Link to="/">
               <button
                 type="button"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-                onClick={() => setOpen(false)}
+                className="font-medium ml-2 text-indigo-600 hover:text-indigo-500"
               >
                 Continue Shopping
                 <span aria-hidden="true"> &rarr;</span>
