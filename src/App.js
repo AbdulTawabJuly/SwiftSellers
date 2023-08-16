@@ -4,6 +4,7 @@ import SignupPage from "./pages/SignupPage";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import Cart from "./features/cart/Cart"
 import "./App.css";
 import {
   createBrowserRouter,
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <CartPage></CartPage>,
+    element: <Cart></Cart>,
   },
   {
     path: "/checkout",
