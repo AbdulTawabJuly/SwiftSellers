@@ -4,7 +4,7 @@ import SignupPage from "./pages/SignupPage";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-import Cart from "./features/cart/Cart"
+import Cart from "./features/cart/Cart";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -12,13 +12,18 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import Protected from "./features/auth/components/Protected";
 
 const router = createBrowserRouter([
   {
     // Protected is liye kar rahe hai take sirf wohi log home or baki cheeze access kar paye jo logged in ho
 
     path: "/",
-    element: <Home></Home>,
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -30,15 +35,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <Cart></Cart>,
+    element: (
+      <Protected>
+        <Cart></Cart>
+      </Protected>
+    ),
   },
   {
     path: "/checkout",
-    element: <Checkout></Checkout>,
+    element: (
+      <Protected>
+        <Checkout></Checkout>
+      </Protected>
+    ),
   },
   {
     path: "/product-detail/:id",
-    element: <ProductDetailsPage></ProductDetailsPage>,
+    element: (
+      <Protected>
+        <ProductDetailsPage></ProductDetailsPage>
+      </Protected>
+    ),
   },
 ]);
 
