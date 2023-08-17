@@ -13,6 +13,10 @@ import {
   Link,
 } from "react-router-dom";
 import Protected from "./features/auth/components/Protected";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
+import { selectLoggedInUser } from "./features/auth/authSlice";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +64,17 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  // Is ko App level pe is liye dispatch kar rahe hai kyu ke jab user login hota hai tou foran hi us ki cart show lag jati hai is liye is ko app level pe dispatch kar rahe hai
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectLoggedInUser);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchItemsByUserIdAsync(user.id));
+    }
+  },[dispatch,user]);
+
   return (
     <div className="App">
       <RouterProvider router={router} />

@@ -6,6 +6,8 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+import { selectItems } from "../cart/cartSlice";
 
 const user = {
   name: "Tom Cook",
@@ -20,7 +22,7 @@ const navigation = [
 const userNavigation = [
   { name: "Your Profile", link: "/" },
   { name: "Settings", link: "/" },
-  { name: "Sign out", link:"/login" },
+  { name: "Sign out", link: "/login" },
 ];
 
 function classNames(...classes) {
@@ -28,6 +30,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ children }) {
+  const items = useSelector(selectItems);
+
   return (
     <>
       <div className="min-h-full">
@@ -38,17 +42,13 @@ export default function Navbar({ children }) {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-
-                    <Link to="/">
-                      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ">
-                        <h1 className="text-3xl font-signature font-bold tracking-tight text-white">
-                          SwiftSellers
-                        </h1>
-                      </div>
+                      <Link to="/">
+                        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ">
+                          <h1 className="text-3xl font-signature font-bold tracking-tight text-white">
+                            SwiftSellers
+                          </h1>
+                        </div>
                       </Link>
-
-
-
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -73,7 +73,6 @@ export default function Navbar({ children }) {
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
                       <Link to="/cart">
-                     
                         <button
                           type="button"
                           className="relative rounded-full bg-none p-1 text-white hover:scale-110 "
@@ -86,10 +85,11 @@ export default function Navbar({ children }) {
                           />
                         </button>
                       </Link>
-                      <span className="inline-flex mb-7 -ml-3 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                        3
-                      </span>
-                      
+                      {items.length>0 && (
+                        <span className="inline-flex mb-7 -ml-3 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                          {items.length}
+                        </span>
+                      )}
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -118,7 +118,7 @@ export default function Navbar({ children }) {
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <Link
-                                  to={item.link}
+                                    to={item.link}
                                     className={classNames(
                                       active ? "bg-gray-100" : "",
                                       "block px-4 py-2 text-sm text-gray-700"
@@ -203,9 +203,11 @@ export default function Navbar({ children }) {
                         />
                       </button>
                     </Link>
-                    <span className="inline-flex mb-7 -ml-3 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                      3
-                    </span>
+                    {items.length >0 && (
+                      <span className="inline-flex mb-7 -ml-3 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                        {items.length}
+                      </span>
+                    )}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
@@ -225,7 +227,6 @@ export default function Navbar({ children }) {
           )}
         </Disclosure>
 
-        
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             {children}
