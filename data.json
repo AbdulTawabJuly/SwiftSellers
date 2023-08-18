@@ -2345,26 +2345,8 @@
           "phone": "123456789",
           "street": "11th Avenue",
           "city": "Lahore",
-          "state": "Punjab",
+          "state": "54000",
           "pinCode": "42000"
-        },
-        {
-          "name": "Luffy",
-          "email": "Luffy@gmail.com",
-          "phone": "123456789",
-          "street": "9th Avenue",
-          "city": "Lahore",
-          "state": "Punjab",
-          "pinCode": "42000"
-        },
-        {
-          "name": "Wahab",
-          "email": "wahab@gmail.com",
-          "phone": "123456123",
-          "street": "16th Avenue",
-          "city": "Mumbai",
-          "state": "Punjab",
-          "pinCode": "123456"
         }
       ],
       "id": 1
@@ -2372,19 +2354,20 @@
   ],
   "cart": [
     {
-      "title": "Silver Ring Set Women",
-      "description": "Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious",
-      "price": 70,
-      "discountPercentage": 13.57,
-      "rating": 4.61,
-      "stock": 51,
-      "brand": "Darojay",
-      "category": "womens-jewellery",
-      "thumbnail": "https://i.dummyjson.com/data/products/76/thumbnail.jpg",
+      "title": "HP Pavilion 15-DK1056WM",
+      "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+      "price": 1099,
+      "discountPercentage": 6.18,
+      "rating": 4.43,
+      "stock": 89,
+      "brand": "HP Pavilion",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
       "images": [
-        "https://i.dummyjson.com/data/products/76/1.jpg",
-        "https://i.dummyjson.com/data/products/76/2.jpg",
-        "https://i.dummyjson.com/data/products/76/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/10/1.jpg",
+        "https://i.dummyjson.com/data/products/10/2.jpg",
+        "https://i.dummyjson.com/data/products/10/3.jpg",
+        "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
       ],
       "quantity": 1,
       "user": 1,
@@ -2682,6 +2665,204 @@
       },
       "status": "pending",
       "id": 5
+    },
+    {
+      "items": [
+        {
+          "title": "Women Shoes",
+          "description": "2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes",
+          "price": 36,
+          "discountPercentage": 16.87,
+          "rating": 4.33,
+          "stock": 46,
+          "brand": "Arrivals Genuine",
+          "category": "womens-shoes",
+          "thumbnail": "https://i.dummyjson.com/data/products/50/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/50/1.jpeg",
+            "https://i.dummyjson.com/data/products/50/2.jpg",
+            "https://i.dummyjson.com/data/products/50/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 30,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Luffy",
+            "email": "Luffy@gmail.com",
+            "phone": "123456789",
+            "street": "9th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Wahab",
+            "email": "wahab@gmail.com",
+            "phone": "123456123",
+            "street": "16th Avenue",
+            "city": "Mumbai",
+            "state": "Punjab",
+            "pinCode": "123456"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Wahab",
+        "email": "wahab@gmail.com",
+        "phone": "123456123",
+        "street": "16th Avenue",
+        "city": "Mumbai",
+        "state": "Punjab",
+        "pinCode": "123456"
+      },
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "title": "Women Shoulder Bags",
+          "description": "LouisWill Women Shoulder Bags Long Clutches Cross Body Bags Phone Bags PU Leather Hand Bags Large Capacity Card Holders Zipper Coin Purses Fashion Crossbody Bags for Girls Ladies",
+          "price": 46,
+          "discountPercentage": 14.65,
+          "rating": 4.71,
+          "stock": 17,
+          "brand": "LouisWill",
+          "category": "womens-bags",
+          "thumbnail": "https://i.dummyjson.com/data/products/71/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/71/1.jpg",
+            "https://i.dummyjson.com/data/products/71/2.jpg",
+            "https://i.dummyjson.com/data/products/71/3.webp",
+            "https://i.dummyjson.com/data/products/71/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 39,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Luffy",
+            "email": "Luffy@gmail.com",
+            "phone": "123456789",
+            "street": "9th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Wahab",
+            "email": "wahab@gmail.com",
+            "phone": "123456123",
+            "street": "16th Avenue",
+            "city": "Mumbai",
+            "state": "123456",
+            "pinCode": "123456"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Wahab",
+        "email": "wahab@gmail.com",
+        "phone": "123456123",
+        "street": "16th Avenue",
+        "city": "Mumbai",
+        "state": "123456",
+        "pinCode": "123456"
+      },
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "title": "NIGHT SUIT",
+          "description": "NIGHT SUIT RED MICKY MOUSE..  For Girls. Fantastic Suits.",
+          "price": 55,
+          "discountPercentage": 15.05,
+          "rating": 4.65,
+          "stock": 21,
+          "brand": "RED MICKY MOUSE..",
+          "category": "womens-dresses",
+          "thumbnail": "https://i.dummyjson.com/data/products/41/thumbnail.webp",
+          "images": [
+            "https://i.dummyjson.com/data/products/41/1.jpg",
+            "https://i.dummyjson.com/data/products/41/2.webp",
+            "https://i.dummyjson.com/data/products/41/3.jpg",
+            "https://i.dummyjson.com/data/products/41/4.jpg",
+            "https://i.dummyjson.com/data/products/41/thumbnail.webp"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 47,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 8
     }
   ]
 }

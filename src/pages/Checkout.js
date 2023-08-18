@@ -11,7 +11,6 @@ import { useForm } from "react-hook-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
-  selectLoggedInUser,
   updateUserAsync,
 } from "../features/auth/authSlice";
 import { useState } from "react";
@@ -19,6 +18,7 @@ import {
   createOrderAsync,
   selectCurrentOrder,
 } from "../features/order/orderSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -69,7 +69,7 @@ function Checkout() {
     formState: { errors },
   } = useForm();
 
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   return (
@@ -408,7 +408,7 @@ function Checkout() {
                               >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
-                                <option value="4">3</option>
+                                <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                               </select>

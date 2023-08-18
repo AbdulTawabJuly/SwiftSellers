@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLoggedInUserOrdersAsync, selectUserOrders } from "../userSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
+import {
+  fetchLoggedInUserOrdersAsync,
+  selectUserInfo,
+  selectUserOrders,
+} from "../userSlice";
 import { Link, Navigate } from "react-router-dom";
 
 export default function UserOrders() {
   const dispatch = useDispatch();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const orders = useSelector(selectUserOrders);
 
   useEffect(() => {
@@ -82,10 +85,7 @@ export default function UserOrders() {
                 <p>{order.totalItems}</p>
               </div>
 
-
-              <p className="mt-0.5 text-sm text-gray-700">
-              Address : 
-              </p>
+              <p className="mt-0.5 text-sm text-gray-700">Address :</p>
               <div className="flex justify-between px-5 gap-x-6 py-5 border-solid border-2 border-gray-200">
                 <div className="flex min-w-0 gap-x-4">
                   <div className="min-w-0 flex-auto">
@@ -111,7 +111,6 @@ export default function UserOrders() {
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
