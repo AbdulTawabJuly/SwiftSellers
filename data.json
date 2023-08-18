@@ -2356,12 +2356,41 @@
           "city": "Lahore",
           "state": "Punjab",
           "pinCode": "42000"
+        },
+        {
+          "name": "Wahab",
+          "email": "wahab@gmail.com",
+          "phone": "123456123",
+          "street": "16th Avenue",
+          "city": "Mumbai",
+          "state": "Punjab",
+          "pinCode": "123456"
         }
       ],
       "id": 1
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Silver Ring Set Women",
+      "description": "Jewelry Type:RingsCertificate Type:NonePlating:Silver PlatedShapeattern:noneStyle:CLASSICReligious",
+      "price": 70,
+      "discountPercentage": 13.57,
+      "rating": 4.61,
+      "stock": 51,
+      "brand": "Darojay",
+      "category": "womens-jewellery",
+      "thumbnail": "https://i.dummyjson.com/data/products/76/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/76/1.jpg",
+        "https://i.dummyjson.com/data/products/76/2.jpg",
+        "https://i.dummyjson.com/data/products/76/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2509,6 +2538,150 @@
       },
       "status": "pending",
       "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "half sleeves T shirts",
+          "description": "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
+          "price": 23,
+          "discountPercentage": 12.76,
+          "rating": 4.26,
+          "stock": 132,
+          "brand": "Vintage Apparel",
+          "category": "mens-shirts",
+          "thumbnail": "https://i.dummyjson.com/data/products/51/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/51/1.png",
+            "https://i.dummyjson.com/data/products/51/2.jpg",
+            "https://i.dummyjson.com/data/products/51/3.jpg",
+            "https://i.dummyjson.com/data/products/51/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 20,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Luffy",
+            "email": "Luffy@gmail.com",
+            "phone": "123456789",
+            "street": "9th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Wahab",
+            "email": "wahab@gmail.com",
+            "phone": "123456123",
+            "street": "16th Avenue",
+            "city": "Mumbai",
+            "state": "Punjab",
+            "pinCode": "123456"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Luffy",
+        "email": "Luffy@gmail.com",
+        "phone": "123456789",
+        "street": "9th Avenue",
+        "city": "Lahore",
+        "state": "Punjab",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "title": "half sleeves T shirts",
+          "description": "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
+          "price": 23,
+          "discountPercentage": 12.76,
+          "rating": 4.26,
+          "stock": 132,
+          "brand": "Vintage Apparel",
+          "category": "mens-shirts",
+          "thumbnail": "https://i.dummyjson.com/data/products/51/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/51/1.png",
+            "https://i.dummyjson.com/data/products/51/2.jpg",
+            "https://i.dummyjson.com/data/products/51/3.jpg",
+            "https://i.dummyjson.com/data/products/51/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 20,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Luffy",
+            "email": "Luffy@gmail.com",
+            "phone": "123456789",
+            "street": "9th Avenue",
+            "city": "Lahore",
+            "state": "Punjab",
+            "pinCode": "42000"
+          },
+          {
+            "name": "Wahab",
+            "email": "wahab@gmail.com",
+            "phone": "123456123",
+            "street": "16th Avenue",
+            "city": "Mumbai",
+            "state": "Punjab",
+            "pinCode": "123456"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "Punjab",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 5
     }
   ]
 }

@@ -4,9 +4,9 @@ import SignupPage from "./pages/SignupPage";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-import Cart from "./features/cart/Cart";
+// import Cart from "./features/cart/Cart";
 import PageNotFound from "./pages/PageNotFound";
-
+import UserOrdersPage from "./pages/UserOrdersPage"
 import "./App.css";
 import {
   createBrowserRouter,
@@ -67,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: "/order-success/:id",
     element: <OrderSuccessPage></OrderSuccessPage>,
+  },
+  {
+    path: "/orders",
+    element: <UserOrdersPage></UserOrdersPage>,
   },
   {
     path: "*",
