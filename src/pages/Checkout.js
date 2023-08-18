@@ -15,10 +15,15 @@ import {
   updateUserAsync,
 } from "../features/auth/authSlice";
 import { useState } from "react";
+import {
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
+  const currentOrder = useSelector(selectCurrentOrder);
   const totalAmount = Math.round(
     items.reduce(
       (amount, item) =>
@@ -45,8 +50,17 @@ function Checkout() {
   };
 
   const handleOrder = (e) => {
-    
-  }
+    const order = {
+      items,
+      totalAmount,
+      totalItems,
+      user,
+      paymentMethod,
+      selectedAddress,
+      status: "pending",
+    };
+    dispatch(createOrderAsync(order));
+  };
 
   const {
     register,
@@ -61,7 +75,12 @@ function Checkout() {
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
-
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -426,8 +445,9 @@ function Checkout() {
                 </p>
                 <div className="mt-6">
                   <div
-                  onClick={handleOrder}
-                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                    onClick={handleOrder}
+                    className="flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                  >
                     Place Order 🎁
                   </div>
                 </div>

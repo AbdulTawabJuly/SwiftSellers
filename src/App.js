@@ -5,6 +5,8 @@ import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Cart from "./features/cart/Cart";
+import PageNotFound from "./pages/PageNotFound";
+
 import "./App.css";
 import {
   createBrowserRouter,
@@ -17,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
 import { selectLoggedInUser } from "./features/auth/authSlice";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +44,7 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <Protected>
-        <Cart></Cart>
+        <CartPage></CartPage>
       </Protected>
     ),
   },
@@ -61,6 +64,14 @@ const router = createBrowserRouter([
       </Protected>
     ),
   },
+  {
+    path: "/order-success/:id",
+    element: <OrderSuccessPage></OrderSuccessPage>,
+  },
+  {
+    path: "*",
+    element: <PageNotFound></PageNotFound>,
+  },
 ]);
 
 function App() {
@@ -73,7 +84,7 @@ function App() {
     if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id));
     }
-  },[dispatch,user]);
+  }, [dispatch, user]);
 
   return (
     <div className="App">
