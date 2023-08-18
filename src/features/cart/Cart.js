@@ -7,7 +7,7 @@ import {
   updateCartAsync,
   deleteItemFromCartAsync,
 } from "./cartSlice";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -34,7 +34,8 @@ export default function Counter() {
 
   return (
     <>
-      <div className=" mt-12 mx-auto bg-white max-w-7xl px-4 sm;px-6 lg:px-8">
+      {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      <div className=" mt-12 mx-auto bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <h1 className="text-4xl my-5 font-signature font-bold tracking-tight text-gray-900">
             Cart

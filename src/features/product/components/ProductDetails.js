@@ -45,7 +45,10 @@ export default function ProductDetail() {
 
   const handleCart = (e) => {
     e.preventDefault();
-    dispatch(addToCartAsync({ ...product, quantity: 1, user: user.id }));
+    const newItem ={ ...product, quantity: 1, user: user.id }
+    delete newItem["id"];
+    dispatch(addToCartAsync(newItem));
+    // new Item is liye bnaya hai kyu ke jab hum cart mai aik item 2 baar daal rahe the tou id same hone ka error de raha tha ab ager id delete karde ge tou wo khud se aik unique id generate kare ga 
   };
 
   useEffect(() => {

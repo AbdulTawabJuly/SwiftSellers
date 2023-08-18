@@ -10,23 +10,32 @@ export function createUser(userData) {
   });
 }
 
-
 export function checkUser(loginInfo) {
-  return new Promise(async (resolve,reject) => {
+  return new Promise(async (resolve, reject) => {
     const email = loginInfo.emaill;
-    const password =loginInfo.password;
-    const response = await fetch("http://localhost:8080/users?email"+email);
+    const password = loginInfo.password;
+    const response = await fetch("http://localhost:8080/users?email" + email);
     const data = await response.json();
-    if(data.length){
-      if(password===data[0].password){
-        resolve({ data:data[0] });
+    if (data.length) {
+      if (password === data[0].password) {
+        resolve({ data: data[0] });
+      } else {
+        reject({ message: "Wrong Password" });
       }
-      else{
-        reject({message:"Wrong Password"})
-      }
+    } else {
+      reject({ message: "User Not Found" });
     }
-    else{
-      reject({message:"User Not Found"})
-    }
+  });
+}
+
+export function updateUser(update) {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/users/" + update.id, {
+      method: "PATCH",
+      body: JSON.stringify(update),
+      headers: { "content-type": "application/json" },
+    });
+    const data = await response.json();
+    resolve({ data });
   });
 }
