@@ -2400,7 +2400,29 @@
       "id": 2
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "productId": 2,
+      "quantity": 1,
+      "user": 1,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2482,7 +2504,7 @@
         "state": "Punjab",
         "pinCode": "42000"
       },
-      "status": "pending",
+      "status": "dispatched",
       "id": 1
     },
     {
@@ -2546,7 +2568,7 @@
         "state": "Punjab",
         "pinCode": "42000"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 2
     },
     {
@@ -2618,7 +2640,7 @@
         "state": "Punjab",
         "pinCode": "42000"
       },
-      "status": "pending",
+      "status": "cancelled",
       "id": 4
     },
     {
@@ -2945,6 +2967,223 @@
       },
       "status": "pending",
       "id": 9
+    },
+    {
+      "items": [
+        {
+          "title": "Stainless Steel Women",
+          "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
+          "price": 35,
+          "discountPercentage": 8.98,
+          "rating": 4.08,
+          "stock": 111,
+          "brand": "Bracelet",
+          "category": "womens-watches",
+          "thumbnail": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/70/1.jpg",
+            "https://i.dummyjson.com/data/products/70/2.jpg",
+            "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 32,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "items": [
+        {
+          "title": "Square Sunglasses",
+          "description": "Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059",
+          "price": 28,
+          "discountPercentage": 13.89,
+          "rating": 4.64,
+          "stock": 64,
+          "brand": "mastar watch",
+          "category": "sunglasses",
+          "thumbnail": "https://i.dummyjson.com/data/products/84/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/84/1.jpg",
+            "https://i.dummyjson.com/data/products/84/2.jpg",
+            "https://i.dummyjson.com/data/products/84/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 24,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "items": [
+        {
+          "title": "Square Sunglasses",
+          "description": "Fashion Oversized Square Sunglasses Retro Gradient Big Frame Sunglasses For Women One Piece Gafas Shade Mirror Clear Lens 17059",
+          "price": 28,
+          "discountPercentage": 13.89,
+          "rating": 4.64,
+          "stock": 64,
+          "brand": "mastar watch",
+          "category": "sunglasses",
+          "thumbnail": "https://i.dummyjson.com/data/products/84/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/84/1.jpg",
+            "https://i.dummyjson.com/data/products/84/2.jpg",
+            "https://i.dummyjson.com/data/products/84/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 24,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "items": [
+        {
+          "title": "Fancy hand clutch",
+          "description": "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
+          "price": 44,
+          "discountPercentage": 10.39,
+          "rating": 4.18,
+          "stock": 101,
+          "brand": "Bracelet",
+          "category": "womens-bags",
+          "thumbnail": "https://i.dummyjson.com/data/products/73/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/73/1.jpg",
+            "https://i.dummyjson.com/data/products/73/2.webp",
+            "https://i.dummyjson.com/data/products/73/3.jpg",
+            "https://i.dummyjson.com/data/products/73/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 39,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 13
     }
   ]
 }

@@ -19,6 +19,7 @@ import {
   selectCurrentOrder,
 } from "../features/order/orderSlice";
 import { selectUserInfo } from "../features/user/userSlice";
+import { discountedPrice } from "../app/constants";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function Checkout() {
   const totalAmount = Math.round(
     items.reduce(
       (amount, item) =>
-        item.price * (1 - item.discountPercentage / 100) * item.quantity +
+        discountedPrice(item) * item.quantity +
         amount,
       0
     )
@@ -383,10 +384,7 @@ function Checkout() {
                               </h3>
                               <p className="ml-4">
                                 $
-                                {Math.round(
-                                  item.price *
-                                    (1 - item.discountPercentage / 100)
-                                )}
+                                {discountedPrice(item)}
                               </p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">

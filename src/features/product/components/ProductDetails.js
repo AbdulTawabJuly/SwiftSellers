@@ -4,8 +4,9 @@ import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByIdAsync, selectProductById } from "../productSlice";
 import { useParams } from "react-router-dom";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
+import { discountedPrice } from "../../../app/constants";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -39,16 +40,23 @@ export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProductById);
+  const items = useSelector(selectItems);
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
 
   const handleCart = (e) => {
     e.preventDefault();
-    const newItem ={ ...product, quantity: 1, user: user.id }
-    delete newItem["id"];
-    dispatch(addToCartAsync(newItem));
-    // new Item is liye bnaya hai kyu ke jab hum cart mai aik item 2 baar daal rahe the tou id same hone ka error de raha tha ab ager id delete karde ge tou wo khud se aik unique id generate kare ga 
+    if (items.findIndex((item) => item.productId === product.id) < 0) {
+      const newItem = { ...product,productId:product.id, quantity: 1, user: user.id };
+      delete newItem["id"];
+      dispatch(addToCartAsync(newItem));
+      // Ye is liye kiya hai ke wo pehle check kare ke cart mai wo wala item pehle se tou ni
+      //items mai hum ne pehle cart ke sare items nikaal liya hai or phir find index se har index check karte hai jaha us index ke sath product.id mil jaye , product mai filhaal newly selected product hai
+    } else {
+      console.log("Already in the Cart");
+    }
+    // new Item is liye bnaya hai kyu ke jab hum cart mai aik item 2 baar daal rahe the tou id same hone ka error de raha tha ab ager id delete karde ge tou wo khud se aik unique id generate kare ga
   };
 
   useEffect(() => {
@@ -146,10 +154,7 @@ export default function ProductDetail() {
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
               <p className="text-3xl tracking-tight text-gray-900">
-                ${" "}
-                {Math.round(
-                  product.price * (1 - product.discountPercentage / 100)
-                )}
+                $ {discountedPrice(product)}
               </p>
               <p className="text-sm font-medium line-through text-gray-500">
                 ${product.price}
