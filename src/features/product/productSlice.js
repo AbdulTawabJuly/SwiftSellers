@@ -1,13 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchAllProducts ,fetchProductsByFilters,fetchBrands,fetchCategories,fetchProductsById} from "./productAPI";
+import {
+  fetchAllProducts,
+  fetchProductsByFilters,
+  fetchBrands,
+  fetchCategories,
+  fetchProductsById,
+  createProduct,
+  updateProduct,
+} from "./productAPI";
 
 const initialState = {
   products: [],
-  brands:[],
-  categories:[],
+  brands: [],
+  categories: [],
   status: "idle",
-  totalItems:0,
-  selectedProduct:null
+  totalItems: 0,
+  selectedProduct: null,
 };
 
 export const fetchAllProductsAsync = createAsyncThunk(
@@ -30,13 +38,12 @@ export const fetchProductsByIdAsync = createAsyncThunk(
 
 export const fetchProductsByFiltersAsync = createAsyncThunk(
   "product/fetchProductsByFilters",
-  async ({filter,sort,pagination}) => {
-    const response = await fetchProductsByFilters(filter,sort,pagination);
+  async ({ filter, sort, pagination }) => {
+    const response = await fetchProductsByFilters(filter, sort, pagination);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
-
 
 export const fetchBrandsAsync = createAsyncThunk(
   "product/fetchBrands",
@@ -56,12 +63,30 @@ export const fetchCategoriesAsync = createAsyncThunk(
   }
 );
 
+export const createProductAsync = createAsyncThunk(
+  "product/createProduct",
+  async (product) => {
+    const response = await createProduct(product);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const updateProductAsync = createAsyncThunk(
+  "product/updateProduct",
+  async (product) => {
+    const response = await updateProduct(product);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    clearSelecetedProduct: (state) => {
+      state.selectedProduct = null;
     },
   },
   extraReducers: (builder) => {
@@ -102,12 +127,28 @@ export const productSlice = createSlice({
       .addCase(fetchProductsByIdAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.selectedProduct = action.payload;
+      })
+      .addCase(createProductAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(createProductAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.products.push(action.payload);
+      })
+      .addCase(updateProductAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateProductAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        const index = state.products.findIndex(
+          (product) => product.id === action.payload.id
+        );
+        state.products[index] = action.payload;
       });
   },
 });
 
-export const { increment } = productSlice.actions;
-
+export const { clearSelecetedProduct } = productSlice.actions;
 export const selectAllProducts = (state) => state.product.products;
 //product reducer ka name hai jo store ke ander hai or products us ke ander array ka name hai
 export const selectBrands = (state) => state.product.brands;

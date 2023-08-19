@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectLoggedInUser, createUserAsync } from "../authSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+// import BG from "../../../images/MainBackGround.jpg";
 
 export default function Signup() {
   const dispatch = useDispatch();
@@ -17,6 +18,13 @@ export default function Signup() {
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
+
+      {/* <div
+        className="w-full min-h-full bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `url(${BG})`,
+        }}
+      > */}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -39,6 +47,7 @@ export default function Signup() {
                   email: data.email,
                   password: data.password,
                   addresses: [],
+                  role: "user",
                 })
               );
             })}
@@ -77,14 +86,6 @@ export default function Signup() {
                 >
                   Password
                 </label>
-                <div className="text-sm">
-                  <Link
-                    to="/forgot-password"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
               </div>
               <div className="mt-2">
                 <input
@@ -157,6 +158,7 @@ export default function Signup() {
           </p>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 }

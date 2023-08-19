@@ -15,6 +15,7 @@ import {
   Link,
 } from "react-router-dom";
 import Protected from "./features/auth/components/Protected";
+import ProtectedAdmin from "./features/auth/components/ProtectedAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchItemsByUserIdAsync } from "./features/cart/cartSlice";
@@ -24,16 +25,27 @@ import UserProfilePage from "./pages/UserProfilePage";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import Logout from "./features/auth/components/Logout";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import AdminHome from "./pages/AdminHome";
+import AdminProductDetailPage from "./pages/AdminProductDetailPage";
+import AdminProductFormPage from "./pages/AdminProductFormPage";
 
 const router = createBrowserRouter([
   {
     // Protected is liye kar rahe hai take sirf wohi log home or baki cheeze access kar paye jo logged in ho
-
     path: "/",
     element: (
       <Protected>
         <Home></Home>
       </Protected>
+    ),
+  },
+  {
+    // Protected is liye kar rahe hai take sirf wohi log home or baki cheeze access kar paye jo logged in ho
+    path: "/admin",
+    element: (
+      <ProtectedAdmin>
+        <AdminHome></AdminHome>
+      </ProtectedAdmin>
     ),
   },
   {
@@ -66,6 +78,30 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailsPage></ProductDetailsPage>
       </Protected>
+    ),
+  },
+  {
+    path: "/admin/product-detail/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailPage></AdminProductDetailPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form/edit/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
     ),
   },
   {

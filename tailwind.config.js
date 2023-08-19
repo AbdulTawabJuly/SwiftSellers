@@ -5,7 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navbar: ["#39AD96"],
+        navbar: ["#1B6B93"],
+         //#39AD96
+         //#4FC0D0
+
       },
       gridTemplateRows: {
         "[auto,auto,1fr]": "auto auto 1fr",
