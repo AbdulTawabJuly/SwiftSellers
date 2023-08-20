@@ -9,6 +9,7 @@ import {
   selectCategories,
   fetchBrandsAsync,
   fetchCategoriesAsync,
+  selectProductListStatus,
 } from "../productSlice";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -23,6 +24,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
+import { Grid } from "react-loader-spinner";
 
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
@@ -44,6 +46,7 @@ export default function ProductList() {
   const [sort, setSort] = useState({});
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [page, setPage] = useState(1);
+  const status = useSelector(selectProductListStatus);
 
   const filters = [
     {
@@ -196,7 +199,7 @@ export default function ProductList() {
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products}></ProductGrid>
+                <ProductGrid products={products} status={status}></ProductGrid>
               </div>
             </div>
           </section>
@@ -467,17 +470,26 @@ function DesktopFilter({ handleFilter, filters }) {
 //   );
 // }
 
-function ProductGrid({ products }) {
+function ProductGrid({ products, status }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+          {status === "loading" ? (
+            <Grid
+              height="80"
+              width="80"
+              color="rgb(79,70,229)"
+              ariaLabel="grid-loading"
+              radius="12.5"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : null}
           {products.map((product) => (
             <Link to={`/product-detail/${product.id}`} key={product.id}>
-              <div
-                
-                className="group relative border-solid border-2 p-2 border-gray-200"
-              >
+              <div className="group relative border-solid border-2 p-2 border-gray-200">
                 <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                   <img
                     src={product.thumbnail}
@@ -499,8 +511,7 @@ function ProductGrid({ products }) {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">
-                      $
-                      {discountedPrice(product)}
+                      ${discountedPrice(product)}
                     </p>
                     <p className="text-sm font-medium line-through text-gray-500">
                       ${product.price}
@@ -508,15 +519,15 @@ function ProductGrid({ products }) {
                   </div>
                 </div>
                 {product.deleted && (
-                    <div>
-                      <p className="text-sm text-red-400">Product Deleted</p>
-                    </div>
-                  )}
-                  {product.stock <=0 && (
-                    <div>
-                      <p className="text-sm text-red-400">Out of Stock</p>
-                    </div>
-                  )}
+                  <div>
+                    <p className="text-sm text-red-400">Product Deleted</p>
+                  </div>
+                )}
+                {product.stock <= 0 && (
+                  <div>
+                    <p className="text-sm text-red-400">Out of Stock</p>
+                  </div>
+                )}
               </div>
             </Link>
           ))}

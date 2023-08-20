@@ -6,21 +6,24 @@ import {
   selectItems,
   updateCartAsync,
   deleteItemFromCartAsync,
+  selectCartStatus,
 } from "./cartSlice";
 import { Link, Navigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { discountedPrice } from "../../app/constants";
+import { Grid } from "react-loader-spinner";
+import Modals from "../common/Modals";
 
-export default function Counter() {
+export default function Cart() {
   const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(null);
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
+  const status = useSelector(selectCartStatus);
   const totalAmount = Math.round(
     items.reduce(
-      (amount, item) =>
-        discountedPrice(item) * item.quantity +
-        amount,
+      (amount, item) => discountedPrice(item) * item.quantity + amount,
       0
     )
   );
@@ -43,6 +46,19 @@ export default function Counter() {
           </h1>
 
           <div className="flow-root">
+            {status === "loading" ? (
+              <Grid
+                height="80"
+                width="80"
+                color="rgb(79,70,229)"
+                ariaLabel="grid-loading"
+                radius="12.5"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            ) : null}
+
             <ul role="list" className="-my-6 divide-y divide-gray-200">
               {items.map((item) => (
                 <li key={item.id} className="flex py-6">
@@ -60,10 +76,7 @@ export default function Counter() {
                         <h3>
                           <a href={item.href}>{item.title}</a>
                         </h3>
-                        <p className="ml-4">
-                          ${" "}
-                          {discountedPrice(item)}
-                        </p>
+                        <p className="ml-4">$ {discountedPrice(item)}</p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500">{item.brand}</p>
                     </div>
@@ -89,8 +102,19 @@ export default function Counter() {
                       </div>
 
                       <div className="flex">
+                        <Modals
+                          title={`Delete ${item.title}`}
+                          message="Are you sure you want to delete this Cart Item"
+                          dangerOption="Delete 💀"
+                          cancelOption="Cancel ❌"
+                          dangerAction={(e) => handleRemove(e, item.id)}
+                          cancelAction={()=>setOpenModal(null)}
+                          showModal={openModal === item.id}
+                        ></Modals>
                         <button
-                          onClick={(e) => handleRemove(e, item.id)}
+                          onClick={(e) => {
+                            setOpenModal(item.id);
+                          }}
                           type="button"
                           className="font-medium text-indigo-600 hover:text-indigo-500"
                         >

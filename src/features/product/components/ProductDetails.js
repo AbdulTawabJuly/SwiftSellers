@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductsByIdAsync, selectProductById } from "../productSlice";
+import {
+  fetchProductsByIdAsync,
+  selectProductById,
+  selectProductListStatus,
+} from "../productSlice";
 import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { discountedPrice } from "../../../app/constants";
+import { useAlert } from "react-alert";
+import { Grid } from "react-loader-spinner";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -44,17 +50,25 @@ export default function ProductDetail() {
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
+  const alert = useAlert();
+  const status = useSelector(selectProductListStatus);
 
   const handleCart = (e) => {
     e.preventDefault();
     if (items.findIndex((item) => item.productId === product.id) < 0) {
-      const newItem = { ...product,productId:product.id, quantity: 1, user: user.id };
+      const newItem = {
+        ...product,
+        productId: product.id,
+        quantity: 1,
+        user: user.id,
+      };
       delete newItem["id"];
       dispatch(addToCartAsync(newItem));
+      alert.success("Item Added to Cart");
       // Ye is liye kiya hai ke wo pehle check kare ke cart mai wo wala item pehle se tou ni
       //items mai hum ne pehle cart ke sare items nikaal liya hai or phir find index se har index check karte hai jaha us index ke sath product.id mil jaye , product mai filhaal newly selected product hai
     } else {
-      console.log("Already in the Cart");
+      alert.error("Item Already Added!");
     }
     // new Item is liye bnaya hai kyu ke jab hum cart mai aik item 2 baar daal rahe the tou id same hone ka error de raha tha ab ager id delete karde ge tou wo khud se aik unique id generate kare ga
   };
@@ -66,6 +80,19 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-white">
+      {status === "loading" ? (
+        <Grid
+          height="80"
+          width="80"
+          color="rgb(79,70,229)"
+          ariaLabel="grid-loading"
+          radius="12.5"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      ) : null}
+
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
