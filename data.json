@@ -3051,7 +3051,7 @@
         "state": "54000",
         "pinCode": "42000"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 11
     },
     {
@@ -3162,6 +3162,63 @@
       },
       "status": "pending",
       "id": 13
+    },
+    {
+      "items": [
+        {
+          "title": "3 lights lndenpant kitchen islang",
+          "description": "3 lights lndenpant kitchen islang dining room pendant rice paper chandelier contemporary led pendant light modern chandelier",
+          "price": 34,
+          "discountPercentage": 5.92,
+          "rating": 4.99,
+          "stock": 44,
+          "brand": "DADAWU",
+          "category": "lighting",
+          "thumbnail": "https://i.dummyjson.com/data/products/98/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/98/1.jpg",
+            "https://i.dummyjson.com/data/products/98/2.jpg",
+            "https://i.dummyjson.com/data/products/98/3.jpg",
+            "https://i.dummyjson.com/data/products/98/4.jpg",
+            "https://i.dummyjson.com/data/products/98/thumbnail.jpg"
+          ],
+          "productId": 98,
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 32,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "@Demo12345",
+        "role": "user",
+        "addresses": [
+          {
+            "name": "Tawab",
+            "email": "tawab@gmail.com",
+            "phone": "123456789",
+            "street": "11th Avenue",
+            "city": "Lahore",
+            "state": "54000",
+            "pinCode": "42000"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Tawab",
+        "email": "tawab@gmail.com",
+        "phone": "123456789",
+        "street": "11th Avenue",
+        "city": "Lahore",
+        "state": "54000",
+        "pinCode": "42000"
+      },
+      "status": "pending",
+      "id": 14
     }
   ]
 }

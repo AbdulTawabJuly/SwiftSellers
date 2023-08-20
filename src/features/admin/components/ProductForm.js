@@ -26,7 +26,6 @@ function ProductForm() {
   } = useForm();
   const dispatch = useDispatch();
   const params = useParams();
-  const selectedProduct = useSelector(selectProductById);
   const [openModal, setOpenModal] = useState(null);
 
   useEffect(() => {
@@ -36,6 +35,8 @@ function ProductForm() {
       dispatch(clearSelecetedProduct());
     }
   }, [params.id, dispatch]);
+
+  const selectedProduct = useSelector(selectProductById);
 
   useEffect(() => {
     if (selectedProduct && params.id) {
@@ -81,8 +82,8 @@ function ProductForm() {
 
           if (params.id) {
             product.id = params.id;
-            dispatch(updateProductAsync(product));
             product.rating = selectedProduct.rating || 0;
+            dispatch(updateProductAsync(product));
             reset();
           } else {
             dispatch(createProductAsync(product));
