@@ -105,7 +105,7 @@ export default function Cart() {
                         <Modals
                           title={`Delete ${item.title}`}
                           message="Are you sure you want to delete this Cart Item"
-                          dangerOption="Delete 💀"
+                          dangerOption="Remove 💀"
                           cancelOption="Cancel ❌"
                           dangerAction={(e) => handleRemove(e, item.id)}
                           cancelAction={()=>setOpenModal(null)}

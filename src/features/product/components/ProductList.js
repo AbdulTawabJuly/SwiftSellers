@@ -479,7 +479,7 @@ function ProductGrid({ products, status }) {
             <Grid
               height="80"
               width="80"
-              color="rgb(79,70,229)"
+              color="rgb(168,223,142)"
               ariaLabel="grid-loading"
               radius="12.5"
               wrapperStyle={{}}
