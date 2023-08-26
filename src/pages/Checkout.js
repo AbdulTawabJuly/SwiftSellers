@@ -10,7 +10,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { updateUserAsync } from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/user/userSlice";
 import { useState } from "react";
 import {
   createOrderAsync,
@@ -361,7 +361,7 @@ function Checkout() {
                 </h1>
 
                 <div className="flow-root">
-                  <ul role="list" className="-my-6 divide-y divide-gray-200">
+                  <ul className="-my-6 divide-y divide-gray-200">
                     {items.map((item) => (
                       <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">

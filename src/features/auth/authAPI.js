@@ -22,6 +22,7 @@ export function checkUser(loginInfo) {
         const data = await response.json();
         resolve({ data });
       } else {
+        reject({message:"Wrong Credentials"})
         const error = await response.json();
         reject(error);
       }
