@@ -129,16 +129,21 @@ function AdminOrders() {
                       <td className="py-3 px-6 text-left">
                         {order.items.map((item, index) => (
                           <div key={index} className="flex items-center">
-                            <div className="mr-2">
-                              <img
-                                className="w-6 h-6 rounded-full"
-                                src={item.thumbnail}
-                              />
-                            </div>
-                            <span>
-                              {item.title} - #{item.quantity} - $
-                              {discountedPrice(item)}
-                            </span>
+                            {item.map((it) => (
+                              <>
+                                <div className="mr-2">
+                                  <img
+                                    className="w-6 h-6 rounded-full"
+                                    src={it.product.thumbnail}
+                                    alt={it.product.title}
+                                  />
+                                </div>
+                                <span>
+                                  {it.product.title} - #{it.quantity} - $
+                                  {discountedPrice(it.product)}
+                                </span>
+                              </>
+                            ))}
                           </div>
                         ))}
                       </td>

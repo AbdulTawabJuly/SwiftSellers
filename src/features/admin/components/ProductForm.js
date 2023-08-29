@@ -12,6 +12,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useAlert } from "react-alert";
 
 function ProductForm() {
   const brands = useSelector(selectBrands);
@@ -26,7 +27,7 @@ function ProductForm() {
   const dispatch = useDispatch();
   const params = useParams();
   const selectedProduct = useSelector(selectProductById);
-
+  const alert = useAlert();
   useEffect(() => {
     if (params.id) {
       dispatch(fetchProductsByIdAsync(params.id));
@@ -79,10 +80,12 @@ function ProductForm() {
         if (params.id) {
           product.id = params.id;
           dispatch(updateProductAsync(product));
+          alert.success("Product Updated Successfully");
           product.rating = selectedProduct.rating || 0;
           reset();
         } else {
           dispatch(createProductAsync(product));
+          alert.success("Product Created Successfully");
           reset();
         }
       })}
@@ -93,6 +96,11 @@ function ProductForm() {
             Add Product
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            {selectedProduct && selectedProduct.deleted && (
+              <h2 className=" text-red-500 sm:col-span-6">
+                This Product is Deleted
+              </h2>
+            )}
             <div className="sm:col-span-4">
               <label
                 htmlFor="title"
@@ -173,7 +181,9 @@ function ProductForm() {
                 >
                   <option value="">--choose brand--</option>
                   {categories.map((category) => (
-                    <option key={category.value} value={category.value}>{category.label}</option>
+                    <option key={category.value} value={category.value}>
+                      {category.label}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -430,13 +440,12 @@ function ProductForm() {
           </button>
         )}
 
-
-          <button
-            type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Save
-          </button>
+        <button
+          type="submit"
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Save
+        </button>
       </div>
     </form>
   );

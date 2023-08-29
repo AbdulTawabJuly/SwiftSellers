@@ -90,7 +90,9 @@ export default function AdminProductList() {
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     //Pagination object bnaya hai neeche pass karne ke liye
-    dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
+    dispatch(
+      fetchProductsByFiltersAsync({ filter, sort, pagination, admin: true })
+    );
   }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
@@ -499,6 +501,7 @@ function ProductGrid({ products }) {
                             className="absolute inset-0"
                           />
                           {product.title}
+
                         </div>
                       </h3>
                       <p className="mt-1 text-sm text-gray-500">
@@ -517,6 +520,11 @@ function ProductGrid({ products }) {
                   {product.deleted && (
                     <div>
                       <p className="text-sm text-red-400">Product Deleted</p>
+                    </div>
+                  )}
+                  {product.stock <= 0 && (
+                    <div>
+                      <p className="text-sm text-red-400">Out of Stock</p>
                     </div>
                   )}
                 </div>

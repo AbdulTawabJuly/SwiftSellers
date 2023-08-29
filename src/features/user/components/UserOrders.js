@@ -15,7 +15,6 @@ export default function UserOrders() {
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(userInfo.id));
   }, [dispatch, userInfo]);
-  console.log("order here", orders);
   return (
     <div>
       <div>
@@ -33,33 +32,29 @@ export default function UserOrders() {
                   <ul className="-my-6 divide-y divide-gray-200">
                     {order.items.map((item) => (
                       <li key={item.id} className="flex py-6">
-                        {/* ------ */}
-                        {item.map((i) => (
+                        {item.map((individualItem) => (
                           <div>
                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
-                                src={i.product.thumbnail}
-                                alt={i.product.title}
+                                src={individualItem.product.thumbnail}
+                                alt={individualItem.product.title}
                                 className="h-full w-full object-cover object-center"
                               />
                             </div>
-                            {/* ----- */}
-
-                            {/* ----- */}
                             <div className="ml-4 flex flex-1 flex-col">
                               <div>
                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
-                                    <a href={i.product.id}>
-                                      {i.product.title}
+                                    <a href={individualItem.product.id}>
+                                      {individualItem.product.title}
                                     </a>
                                   </h3>
                                   <p className="ml-4">
-                                    $ {discountedPrice(i.product)}
+                                    $ {discountedPrice(individualItem.product)}
                                   </p>
                                 </div>
                                 <p className="mt-1 text-sm text-gray-500">
-                                  {i.product.brand}
+                                  {individualItem.product.brand}
                                 </p>
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">
@@ -68,7 +63,7 @@ export default function UserOrders() {
                                     htmlFor="quantity"
                                     className="inline mr-5 text-sm font-medium leading-6 text-gray-900"
                                   >
-                                    Qty : {i.quantity}
+                                    Qty : {individualItem.quantity}
                                   </label>
                                 </div>
 
