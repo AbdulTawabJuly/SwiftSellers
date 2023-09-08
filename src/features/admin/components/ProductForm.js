@@ -101,6 +101,11 @@ function ProductForm() {
                 This Product is Deleted
               </h2>
             )}
+            {selectedProduct && selectedProduct.stock>=0 && (
+              <h2 className=" text-red-500 sm:col-span-6">
+                This Product is Out of Stock
+              </h2>
+            )}
             <div className="sm:col-span-4">
               <label
                 htmlFor="title"
@@ -248,7 +253,6 @@ function ProductForm() {
                     type="number"
                     {...register("stock", {
                       required: "Stock is Required",
-                      min: 1,
                     })}
                     id="stock"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"

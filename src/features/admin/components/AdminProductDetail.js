@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByIdAsync, selectProductById } from "../../product/productSlice";
 import { useParams } from "react-router-dom";
 import { addToCartAsync } from "../../cart/cartSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
 import { discountedPrice } from "../../../app/constants";
 
 const colors = [
@@ -40,13 +39,12 @@ export default function AdminProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProductById);
-  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
 
   const handleCart = (e) => {
     e.preventDefault();
-    const newItem ={ ...product, quantity: 1, user: user.id }
+    const newItem ={ ...product, quantity: 1 }
     delete newItem["id"];
     dispatch(addToCartAsync(newItem));
     // new Item is liye bnaya hai kyu ke jab hum cart mai aik item 2 baar daal rahe the tou id same hone ka error de raha tha ab ager id delete karde ge tou wo khud se aik unique id generate kare ga 
