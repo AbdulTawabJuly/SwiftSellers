@@ -25,6 +25,7 @@ import {
   selectUserChecked,
 } from "./features/auth/authSlice";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
+import StripeCheckout from "./pages/StripeCheckout";
 import UserProfilePage from "./pages/UserProfilePage";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import Logout from "./features/auth/components/Logout";
@@ -151,6 +152,14 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout></Logout>,
+  },
+  {
+    path: "/stripe-checkout/",
+    element: (
+      <Protected>
+        <StripeCheckout></StripeCheckout>
+      </Protected>
+    ),
   },
   {
     path: "/forgot-password",
