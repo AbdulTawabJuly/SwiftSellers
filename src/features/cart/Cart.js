@@ -7,6 +7,7 @@ import {
   updateCartAsync,
   deleteItemFromCartAsync,
   selectCartStatus,
+  selectCartLoaded,
 } from "./cartSlice";
 import { Link, Navigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
@@ -21,6 +22,7 @@ export default function Cart() {
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
   const status = useSelector(selectCartStatus);
+  const cartLoaded = useSelector(selectCartLoaded);
   const totalAmount = Math.round(
     items.reduce(
       (amount, item) => discountedPrice(item.product) * item.quantity + amount,
@@ -38,7 +40,9 @@ export default function Cart() {
 
   return (
     <>
-      {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {!items.length && cartLoaded && (
+        <Navigate to="/" replace={true}></Navigate>
+      )}
       <div className=" mt-12 mx-auto bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <h1 className="text-4xl my-5 font-signature font-bold tracking-tight text-gray-900">
@@ -76,9 +80,13 @@ export default function Cart() {
                         <h3>
                           <a href={item.product.id}>{item.product.title}</a>
                         </h3>
-                        <p className="ml-4">$ {discountedPrice(item.product)}</p>
+                        <p className="ml-4">
+                          $ {discountedPrice(item.product)}
+                        </p>
                       </div>
-                      <p className="mt-1 text-sm text-gray-500">{item.product.brand}</p>
+                      <p className="mt-1 text-sm text-gray-500">
+                        {item.product.brand}
+                      </p>
                     </div>
                     <div className="flex flex-1 items-end justify-between text-sm">
                       <div className="text-gray-500">
